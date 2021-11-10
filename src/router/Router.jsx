@@ -16,12 +16,14 @@ export const Router = () => {
         path="/page1"
         render={({ match: { url } }) => (
           <Switch>
+            {/* ここの引数routeにはpage1Route配列のオブジェクトたちがそれぞれ入ってくる*/}
             {page1Routes.map((route) => (
               <Route
                 key={route.path}
                 exact={route.exact}
                 path={`${url}${route.path}`}
               >
+                {/* このChildrenにはそれぞれのコンポーネントが入ってくる */}
                 {route.children}
               </Route>
             ))}
